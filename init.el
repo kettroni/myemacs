@@ -34,6 +34,15 @@
 (require 'use-package)
 (setq use-package-always-ensure t)
 
+(column-number-mode 1)
+(global-linum-mode)
+
+;; Disable line numbers for some modes
+(dolist (mode '(org-mode-hook
+		term-mode-hook
+		eshell-mode-hook))
+  (add-hook mode (lambda () (linum-mode 0))))
+
 (use-package swiper)
 
 (use-package counsel)
