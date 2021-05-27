@@ -29,6 +29,10 @@
 (unless (package-installed-p 'use-package)
   (package-install 'use-package))
 
+;; First time you have to run
+;; M-x all-the-icons-install-fonts
+(use-package all-the-icons)
+
 (require 'use-package)
 (setq use-package-always-ensure t)
 
@@ -71,10 +75,15 @@
   :config
   (ivy-mode 1))
 
+(global-set-key (kbd "C-M-j") 'counsel-switch-buffer)
+
 (use-package doom-modeline
   :ensure t
   :init (doom-modeline-mode 1)
-  :custom ((doom-modeline-height 10)))
+  :custom
+  (doom-modeline-height 7)
+  (doom-modeline-bar-width 4))
+  
 
 (use-package doom-themes)
 (load-theme 'doom-gruvbox t)
