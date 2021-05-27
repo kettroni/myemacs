@@ -112,3 +112,4 @@
   ([remap describe-variable] . counsel-describe-variable)
   ([remap describe-key] . helpful-key))
 
+(winner-mode 1)
