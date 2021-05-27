@@ -9,7 +9,7 @@
 ;; Set up the visible bell
 (setq visible-bell t)
 
-(set-face-attribute 'default nil :font "Ubuntu Mono" :height 120)
+(set-face-attribute 'default nil :font "Ubuntu Mono" :height 180)
 
 ;; Make ESC quit prompts
 (global-set-key (kbd "<escape>") 'keyboard-escape-quit)
@@ -86,6 +86,9 @@
   
 
 (use-package doom-themes)
+
+(add-hook 'haskell-mode-hook 'interactive-haskell-mode)
+
 (load-theme 'doom-gruvbox t)
 
 (use-package rainbow-delimiters
