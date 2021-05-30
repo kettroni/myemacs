@@ -9,7 +9,7 @@
 ;; Set up the visible bell
 (setq visible-bell t)
 
-(set-face-attribute 'default nil :font "Ubuntu Mono" :height 180)
+(set-face-attribute 'default nil :font "Ubuntu Mono" :height 120)
 
 ;; Make ESC quit prompts
 (global-set-key (kbd "<escape>") 'keyboard-escape-quit)
