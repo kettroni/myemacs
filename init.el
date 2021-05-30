@@ -114,3 +114,20 @@
 (winner-mode 1)
 
 (use-package magit)
+
+(use-package projectile
+  :diminish projectile-mode
+  :config (projectile-mode)
+  :demand t
+  :bind-keymap
+  ("C-c p" . projectile-command-map)
+  :init
+  (when (file-directory-p "~/Projects/")
+    (setq projectile-project-search-path '("~/Projects/")))
+  (setq projectile-switch-project-action #'dw/switch-project-action))
+
+(use-package counsel-projectile
+  :after projectile
+  :bind (("C-M-p" . counsel-projectile-find-file))
+  :config
+  (counsel-projectile-mode))
