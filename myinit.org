@@ -60,7 +60,7 @@ Nice small icons
     (load-theme 'doom-gruvbox t)
 #+END_SRC   
 ** Using doom-modeline
-Nice package for setting up the mode-line
+Nice package for setting up the mode-line.
 #+BEGIN_SRC emacs-lisp
   (leaf doom-modeline
     :ensure t
@@ -81,6 +81,12 @@ This package automatically scales text size.
 	)
     (dynamic-fonts-setup)
 #+END_SRC
+* Encoding system
+Set the default encoding for opening and saving files.
+#+BEGIN_SRC emacs-lisp
+(set-language-environment "UTF-8")
+#+END_SRC
+
 * Swiper
 #+BEGIN_SRC emacs-lisp
   (leaf swiper
@@ -205,18 +211,32 @@ Nice package to highlight matching parantheses.
       :hook (org-mode . rainbow-delimiters-mode))
 #+END_SRC
 
-*
-
 * Multiple cursors
 This can be used to select multiple cursors.
 #+BEGIN_SRC emacs-lisp
-  (require 'multiple-cursors)
-  (global-set-key (kbd "C-q") 'mc/edit-lines)
-  (global-set-key (kbd "C-<") 'mc/mark-next-like-this)
-  (global-set-key (kbd "C->") 'mc/mark-previous-like-this)
-  (global-set-key (kbd "C-c C-q") 'mc/mark-all-like-this)
-  (global-set-key (kbd "C-c C-SPC") 'set-rectangular-region-anchor)
+  (leaf multiple-cursors
+    :ensure t
+    :require t
+    :bind (("C-q" . mc/edit-lines)
+	  ("C-." . mc/mark-next-like-this)
+	  ("C-," . mc/mark-previous-like-this)
+	  ("C-c C-SPC" . mc/mark-all-like-this)))
 #+END_SRC
+
+* Programming languages
+** Autocompletion
+#+BEGIN_SRC emacs-lisp
+  (leaf company
+    :ensure t
+    :require t)
+  (add-hook 'after-init-hook 'global-company-mode)
+#+END_SRC
+** Python
+*** Jedi
+#+BEGIN_SRC emacs-lisp
+
+#+END_SRC
+
 
 * src snippet
 #+BEGIN_SRC emacs-lisp
