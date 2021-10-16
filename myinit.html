@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2021-10-16 la 20:22 -->
+<!-- 2021-10-17 su 01:48 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>&lrm;</title>
@@ -203,36 +203,59 @@
 <h2>Table of Contents</h2>
 <div id="text-table-of-contents" role="doc-toc">
 <ul>
-<li><a href="#org23be271">1. Install leaf</a></li>
-<li><a href="#org3d8a72b">2. Interface customizations</a>
+<li><a href="#org99fb031">1. Install leaf</a></li>
+<li><a href="#org66e7384">2. Interface customizations</a>
 <ul>
-<li><a href="#orge14e28f">2.1. Basic configs</a></li>
-<li><a href="#org8949466">2.2. Theme setting</a></li>
-<li><a href="#orgda4041c">2.3. Using doom-modeline</a></li>
+<li><a href="#org839a854">2.1. Basic configs</a></li>
+<li><a href="#org12ded79">2.2. Theme setting</a></li>
+<li><a href="#orgb7a30d4">2.3. Using doom-modeline</a></li>
 </ul>
 </li>
-<li><a href="#org506ba65">3. Font customization</a>
+<li><a href="#org3549716">3. Font customization</a>
 <ul>
-<li><a href="#orgc659d65">3.1. Setting Font</a></li>
-<li><a href="#org9a66474">3.2. Using dynamic-fonts</a></li>
+<li><a href="#orgc47704c">3.1. Setting Font</a></li>
+<li><a href="#orgf7d9e59">3.2. Using dynamic-fonts</a></li>
 </ul>
 </li>
-<li><a href="#org2b86371">4. Swiper</a></li>
-<li><a href="#org6640bb1">5. Counsel</a></li>
-<li><a href="#orgd49f363">6. Ivy</a></li>
-<li><a href="#org086cce4">7. which-key</a></li>
-<li><a href="#org7882db3">8. helpful</a></li>
-<li><a href="#org25ad38b">9. winner-mode</a></li>
-<li><a href="#orgc8f7441">10. magit</a></li>
-<li><a href="#org6a35ea2">11. projectile</a></li>
-<li><a href="#org661782b">12. Rainbow delimiters</a></li>
-<li><a href="#org89a583b">13. Multiple cursors</a></li>
-<li><a href="#org0635adc">14. src snippet</a></li>
+<li><a href="#org847b820">4. Encoding system</a></li>
+<li><a href="#org4fa4aff">5. Swiper</a></li>
+<li><a href="#orgbf7119d">6. Counsel</a></li>
+<li><a href="#orgb5953f4">7. Ivy</a></li>
+<li><a href="#orgab4bc90">8. which-key</a></li>
+<li><a href="#orgfd99512">9. helpful</a></li>
+<li><a href="#orgdb251b0">10. winner-mode</a></li>
+<li><a href="#org9dc800b">11. magit</a></li>
+<li><a href="#org54c534c">12. projectile</a></li>
+<li><a href="#orgf8d183a">13. Rainbow delimiters</a></li>
+<li><a href="#org208dfac">14. Multiple cursors</a></li>
+<li><a href="#org011d730">15. Programming languages</a>
+<ul>
+<li><a href="#orgd6fc5f2">15.1. Python</a>
+<ul>
+<li><a href="#org0654add">15.1.1. Elpy</a></li>
+<li><a href="#org29ee7fb">15.1.2. Black</a></li>
+</ul>
+</li>
+<li><a href="#orgc5144ac">15.2. Haskell</a>
+<ul>
+<li><a href="#orga8fab20">15.2.1. company-ghci</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="#org8f7e9f4">16. Autocompletion</a>
+<ul>
+<li><a href="#org8b2f3ae">16.1. Company</a></li>
+<li><a href="#org53c85f8">16.2. YASnippet</a></li>
+</ul>
+</li>
+<li><a href="#org065c90f">17. Error checking</a></li>
+<li><a href="#org7fbdf5b">18. src snippet</a></li>
 </ul>
 </div>
 </div>
-<div id="outline-container-org23be271" class="outline-2">
-<h2 id="org23be271"><span class="section-number-2">1.</span> Install leaf</h2>
+<div id="outline-container-org99fb031" class="outline-2">
+<h2 id="org99fb031"><span class="section-number-2">1.</span> Install leaf</h2>
 <div class="outline-text-2" id="text-1">
 <p>
 Substitute for package.el, works similarly to it
@@ -264,12 +287,12 @@ Substitute for package.el, works similarly to it
 </div>
 </div>
 </div>
-<div id="outline-container-org3d8a72b" class="outline-2">
-<h2 id="org3d8a72b"><span class="section-number-2">2.</span> Interface customizations</h2>
+<div id="outline-container-org66e7384" class="outline-2">
+<h2 id="org66e7384"><span class="section-number-2">2.</span> Interface customizations</h2>
 <div class="outline-text-2" id="text-2">
 </div>
-<div id="outline-container-orge14e28f" class="outline-3">
-<h3 id="orge14e28f"><span class="section-number-3">2.1.</span> Basic configs</h3>
+<div id="outline-container-org839a854" class="outline-3">
+<h3 id="org839a854"><span class="section-number-3">2.1.</span> Basic configs</h3>
 <div class="outline-text-3" id="text-2-1">
 <div class="org-src-container">
 <pre class="src src-emacs-lisp">(setq inhibit-startup-message t)
@@ -301,23 +324,24 @@ Nice small icons
 </div>
 </div>
 </div>
-<div id="outline-container-org8949466" class="outline-3">
-<h3 id="org8949466"><span class="section-number-3">2.2.</span> Theme setting</h3>
+<div id="outline-container-org12ded79" class="outline-3">
+<h3 id="org12ded79"><span class="section-number-3">2.2.</span> Theme setting</h3>
 <div class="outline-text-3" id="text-2-2">
 <div class="org-src-container">
 <pre class="src src-emacs-lisp">(leaf doom-themes
     :ensure t
     :require t)
-(load-theme 'doom-gruvbox t)
+(load-theme 'doom-monokai-pro t)
+
 </pre>
 </div>
 </div>
 </div>
-<div id="outline-container-orgda4041c" class="outline-3">
-<h3 id="orgda4041c"><span class="section-number-3">2.3.</span> Using doom-modeline</h3>
+<div id="outline-container-orgb7a30d4" class="outline-3">
+<h3 id="orgb7a30d4"><span class="section-number-3">2.3.</span> Using doom-modeline</h3>
 <div class="outline-text-3" id="text-2-3">
 <p>
-Nice package for setting up the mode-line
+Nice package for setting up the mode-line.
 </p>
 <div class="org-src-container">
 <pre class="src src-emacs-lisp">(leaf doom-modeline
@@ -329,12 +353,12 @@ Nice package for setting up the mode-line
 </div>
 </div>
 </div>
-<div id="outline-container-org506ba65" class="outline-2">
-<h2 id="org506ba65"><span class="section-number-2">3.</span> Font customization</h2>
+<div id="outline-container-org3549716" class="outline-2">
+<h2 id="org3549716"><span class="section-number-2">3.</span> Font customization</h2>
 <div class="outline-text-2" id="text-3">
 </div>
-<div id="outline-container-orgc659d65" class="outline-3">
-<h3 id="orgc659d65"><span class="section-number-3">3.1.</span> Setting Font</h3>
+<div id="outline-container-orgc47704c" class="outline-3">
+<h3 id="orgc47704c"><span class="section-number-3">3.1.</span> Setting Font</h3>
 <div class="outline-text-3" id="text-3-1">
 <div class="org-src-container">
 <pre class="src src-emacs-lisp">(set-face-attribute 'default nil :font "Ubuntu Mono")
@@ -342,8 +366,8 @@ Nice package for setting up the mode-line
 </div>
 </div>
 </div>
-<div id="outline-container-org9a66474" class="outline-3">
-<h3 id="org9a66474"><span class="section-number-3">3.2.</span> Using dynamic-fonts</h3>
+<div id="outline-container-orgf7d9e59" class="outline-3">
+<h3 id="orgf7d9e59"><span class="section-number-3">3.2.</span> Using dynamic-fonts</h3>
 <div class="outline-text-3" id="text-3-2">
 <p>
 This package automatically scales text size.
@@ -359,9 +383,22 @@ This package automatically scales text size.
 </div>
 </div>
 </div>
-<div id="outline-container-org2b86371" class="outline-2">
-<h2 id="org2b86371"><span class="section-number-2">4.</span> Swiper</h2>
+<div id="outline-container-org847b820" class="outline-2">
+<h2 id="org847b820"><span class="section-number-2">4.</span> Encoding system</h2>
 <div class="outline-text-2" id="text-4">
+<p>
+Set the default encoding for opening and saving files.
+</p>
+<div class="org-src-container">
+<pre class="src src-emacs-lisp">(set-language-environment "UTF-8")
+</pre>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org4fa4aff" class="outline-2">
+<h2 id="org4fa4aff"><span class="section-number-2">5.</span> Swiper</h2>
+<div class="outline-text-2" id="text-5">
 <div class="org-src-container">
 <pre class="src src-emacs-lisp">(leaf swiper
   :ensure t
@@ -371,9 +408,9 @@ This package automatically scales text size.
 </div>
 </div>
 
-<div id="outline-container-org6640bb1" class="outline-2">
-<h2 id="org6640bb1"><span class="section-number-2">5.</span> Counsel</h2>
-<div class="outline-text-2" id="text-5">
+<div id="outline-container-orgbf7119d" class="outline-2">
+<h2 id="orgbf7119d"><span class="section-number-2">6.</span> Counsel</h2>
+<div class="outline-text-2" id="text-6">
 <div class="org-src-container">
 <pre class="src src-emacs-lisp">(leaf counsel
   :ensure t
@@ -390,9 +427,9 @@ This package automatically scales text size.
 </div>
 </div>
 
-<div id="outline-container-orgd49f363" class="outline-2">
-<h2 id="orgd49f363"><span class="section-number-2">6.</span> Ivy</h2>
-<div class="outline-text-2" id="text-6">
+<div id="outline-container-orgb5953f4" class="outline-2">
+<h2 id="orgb5953f4"><span class="section-number-2">7.</span> Ivy</h2>
+<div class="outline-text-2" id="text-7">
 <div class="org-src-container">
 <pre class="src src-emacs-lisp">(leaf ivy
   :ensure t
@@ -423,9 +460,9 @@ This package automatically scales text size.
 </div>
 </div>
 
-<div id="outline-container-org086cce4" class="outline-2">
-<h2 id="org086cce4"><span class="section-number-2">7.</span> which-key</h2>
-<div class="outline-text-2" id="text-7">
+<div id="outline-container-orgab4bc90" class="outline-2">
+<h2 id="orgab4bc90"><span class="section-number-2">8.</span> which-key</h2>
+<div class="outline-text-2" id="text-8">
 <p>
 Shows you helpful list of commands on how to continue
 the current keyboard combination
@@ -442,9 +479,9 @@ the current keyboard combination
 </div>
 </div>
 
-<div id="outline-container-org7882db3" class="outline-2">
-<h2 id="org7882db3"><span class="section-number-2">8.</span> helpful</h2>
-<div class="outline-text-2" id="text-8">
+<div id="outline-container-orgfd99512" class="outline-2">
+<h2 id="orgfd99512"><span class="section-number-2">9.</span> helpful</h2>
+<div class="outline-text-2" id="text-9">
 <p>
 Gives nicer help screens.
 </p>
@@ -465,18 +502,18 @@ Gives nicer help screens.
 </div>
 </div>
 </div>
-<div id="outline-container-org25ad38b" class="outline-2">
-<h2 id="org25ad38b"><span class="section-number-2">9.</span> winner-mode</h2>
-<div class="outline-text-2" id="text-9">
+<div id="outline-container-orgdb251b0" class="outline-2">
+<h2 id="orgdb251b0"><span class="section-number-2">10.</span> winner-mode</h2>
+<div class="outline-text-2" id="text-10">
 <div class="org-src-container">
 <pre class="src src-emacs-lisp">(winner-mode 1)
 </pre>
 </div>
 </div>
 </div>
-<div id="outline-container-orgc8f7441" class="outline-2">
-<h2 id="orgc8f7441"><span class="section-number-2">10.</span> magit</h2>
-<div class="outline-text-2" id="text-10">
+<div id="outline-container-org9dc800b" class="outline-2">
+<h2 id="org9dc800b"><span class="section-number-2">11.</span> magit</h2>
+<div class="outline-text-2" id="text-11">
 <div class="org-src-container">
 <pre class="src src-emacs-lisp">(leaf magit
   :ensure t
@@ -486,9 +523,9 @@ Gives nicer help screens.
 </div>
 </div>
 
-<div id="outline-container-org6a35ea2" class="outline-2">
-<h2 id="org6a35ea2"><span class="section-number-2">11.</span> projectile</h2>
-<div class="outline-text-2" id="text-11">
+<div id="outline-container-org54c534c" class="outline-2">
+<h2 id="org54c534c"><span class="section-number-2">12.</span> projectile</h2>
+<div class="outline-text-2" id="text-12">
 <p>
 Easy navigation between projects.
 Switch the file-directory corresponding to where your git projects.
@@ -519,9 +556,9 @@ Switch the file-directory corresponding to where your git projects.
 </div>
 </div>
 
-<div id="outline-container-org661782b" class="outline-2">
-<h2 id="org661782b"><span class="section-number-2">12.</span> Rainbow delimiters</h2>
-<div class="outline-text-2" id="text-12">
+<div id="outline-container-orgf8d183a" class="outline-2">
+<h2 id="orgf8d183a"><span class="section-number-2">13.</span> Rainbow delimiters</h2>
+<div class="outline-text-2" id="text-13">
 <p>
 Nice package to highlight matching parantheses.
 </p>
@@ -529,48 +566,169 @@ Nice package to highlight matching parantheses.
 <pre class="src src-emacs-lisp">(leaf rainbow-delimiters
   :ensure t
   :require t
-  :hook (prog-mode . rainbow-delimiters-mode)
-  :hook (org-mode . rainbow-delimiters-mode))
+  :hook (prog-mode-hook . rainbow-delimiters-mode)
+  :hook (org-mode-hook . rainbow-delimiters-mode))
 </pre>
 </div>
-
-<p>
-*
-</p>
 </div>
 </div>
 
-<div id="outline-container-org89a583b" class="outline-2">
-<h2 id="org89a583b"><span class="section-number-2">13.</span> Multiple cursors</h2>
-<div class="outline-text-2" id="text-13">
+<div id="outline-container-org208dfac" class="outline-2">
+<h2 id="org208dfac"><span class="section-number-2">14.</span> Multiple cursors</h2>
+<div class="outline-text-2" id="text-14">
 <p>
 This can be used to select multiple cursors.
 </p>
 <div class="org-src-container">
-<pre class="src src-emacs-lisp">(require 'multiple-cursors)
-(global-set-key (kbd "C-q") 'mc/edit-lines)
-(global-set-key (kbd "C-&lt;") 'mc/mark-next-like-this)
-(global-set-key (kbd "C-&gt;") 'mc/mark-previous-like-this)
-(global-set-key (kbd "C-c C-q") 'mc/mark-all-like-this)
-(global-set-key (kbd "C-c C-SPC") 'set-rectangular-region-anchor)
+<pre class="src src-emacs-lisp">(leaf multiple-cursors
+  :ensure t
+  :require t
+  :bind (("C-q" . mc/edit-lines)
+	("C-." . mc/mark-next-like-this)
+	("C-," . mc/mark-previous-like-this)
+	("C-c C-SPC" . mc/mark-all-like-this)))
 </pre>
 </div>
 </div>
 </div>
 
-<div id="outline-container-org0635adc" class="outline-2">
-<h2 id="org0635adc"><span class="section-number-2">14.</span> src snippet</h2>
-<div class="outline-text-2" id="text-14">
+<div id="outline-container-org011d730" class="outline-2">
+<h2 id="org011d730"><span class="section-number-2">15.</span> Programming languages</h2>
+<div class="outline-text-2" id="text-15">
+</div>
+<div id="outline-container-orgd6fc5f2" class="outline-3">
+<h3 id="orgd6fc5f2"><span class="section-number-3">15.1.</span> Python</h3>
+<div class="outline-text-3" id="text-15-1">
+</div>
+<div id="outline-container-org0654add" class="outline-4">
+<h4 id="org0654add"><span class="section-number-4">15.1.1.</span> Elpy</h4>
+<div class="outline-text-4" id="text-15-1-1">
+<p>
+Elpy is a great all around tool for python.
+</p>
 <div class="org-src-container">
-<pre class="src src-emacs-lisp">
+<pre class="src src-emacs-lisp">(leaf elpy
+  :ensure t
+  :require t
+  :init
+  (elpy-enable))
+</pre>
+</div>
+</div>
+</div>
+<div id="outline-container-org29ee7fb" class="outline-4">
+<h4 id="org29ee7fb"><span class="section-number-4">15.1.2.</span> Black</h4>
+<div class="outline-text-4" id="text-15-1-2">
+<p>
+Formatting whitespaces, indentation etc.
+</p>
+<div class="org-src-container">
+<pre class="src src-emacs-lisp">(leaf python-black
+  :ensure t
+  :require t
+  :after python
+  :hook (python-mode . python-black-on-save-mode-enable-dwim))
 </pre>
 </div>
 </div>
 </div>
 </div>
+
+<div id="outline-container-orgc5144ac" class="outline-3">
+<h3 id="orgc5144ac"><span class="section-number-3">15.2.</span> Haskell</h3>
+<div class="outline-text-3" id="text-15-2">
+<div class="org-src-container">
+<pre class="src src-emacs-lisp">(leaf haskell-mode
+  :ensure t
+  :require t)
+
+(defun haskell-setup ()
+  (haskell-indentation-mode 1)
+  (interactive-haskell-mode 1))
+(add-hook 'haskell-mode-hook 'haskell-setup)
+</pre>
+</div>
+</div>
+
+<div id="outline-container-orga8fab20" class="outline-4">
+<h4 id="orga8fab20"><span class="section-number-4">15.2.1.</span> company-ghci</h4>
+<div class="outline-text-4" id="text-15-2-1">
+<div class="org-src-container">
+<pre class="src src-emacs-lisp">(leaf company-ghci
+  :ensure t
+  :require t
+  :hook (haskell-mode-hook . company-mode)
+  :hook (haskell-interactive-mode-hook . company-mode))
+</pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+
+
+<div id="outline-container-org8f7e9f4" class="outline-2">
+<h2 id="org8f7e9f4"><span class="section-number-2">16.</span> Autocompletion</h2>
+<div class="outline-text-2" id="text-16">
+</div>
+<div id="outline-container-org8b2f3ae" class="outline-3">
+<h3 id="org8b2f3ae"><span class="section-number-3">16.1.</span> Company</h3>
+<div class="outline-text-3" id="text-16-1">
+<div class="org-src-container">
+<pre class="src src-emacs-lisp">(leaf company
+  :ensure t
+  :require t
+  :init (global-company-mode))
+</pre>
+</div>
+</div>
+</div>
+<div id="outline-container-org53c85f8" class="outline-3">
+<h3 id="org53c85f8"><span class="section-number-3">16.2.</span> YASnippet</h3>
+<div class="outline-text-3" id="text-16-2">
+<div class="org-src-container">
+<pre class="src src-emacs-lisp">(leaf yasnippet
+  :ensure t
+  :require t
+  :config (setq yas-snippet-dirs
+		'("~/.emacs.d/snippets"
+		"/home/roni/.emacs.d/elpa/yasnippet-snippets-20210910.1959/snippets"))
+  :init (yas-global-mode 1))
+
+(leaf yasnippet-snippets
+  :ensure t
+  :require t)
+
+(leaf ivy-yasnippet
+  :ensure t
+  :require t)
+
+(setq org-src-tab-acts-natively nil)
+</pre>
+</div>
+</div>
+</div>
+</div>
+<div id="outline-container-org065c90f" class="outline-2">
+<h2 id="org065c90f"><span class="section-number-2">17.</span> Error checking</h2>
+<div class="outline-text-2" id="text-17">
+<div class="org-src-container">
+<pre class="src src-emacs-lisp">(leaf flycheck
+  :ensure t
+  :require t
+  :init (global-flycheck-mode))
+</pre>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org7fbdf5b" class="outline-2">
+<h2 id="org7fbdf5b"><span class="section-number-2">18.</span> src snippet</h2>
+</div>
+</div>
 <div id="postamble" class="status">
 <p class="author">Author: Roni Kettunen</p>
-<p class="date">Created: 2021-10-16 la 20:22</p>
+<p class="date">Created: 2021-10-17 su 01:48</p>
 <p class="validation"><a href="https://validator.w3.org/check?uri=referer">Validate</a></p>
 </div>
 </body>
