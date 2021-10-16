@@ -1,0 +1,4 @@
+* myemacs
+This repository contains my emacs configuration.
+In the future I hope that I can use this to get other people
+more easily into emacs.

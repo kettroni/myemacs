@@ -1,0 +1,307 @@
+#+SETUPFILE: "~/Projects/myemacs/themes/retro.theme"
+* Install leaf
+
+Substitute for package.el, works similarly to it
+#+BEGIN_SRC emacs-lisp
+(eval-and-compile
+  (customize-set-variable
+   'package-archives '(("org" . "https://orgmode.org/elpa/")
+                       ("melpa" . "https://melpa.org/packages/")
+                       ("gnu" . "https://elpa.gnu.org/packages/")))
+  (package-initialize)
+  (unless (package-installed-p 'leaf)
+    (package-refresh-contents)
+    (package-install 'leaf))
+
+  (leaf leaf-keywords
+    :ensure t
+    :init
+    ;; optional packages if you want to use :hydra, :el-get, :blackout,,,
+    (leaf hydra :ensure t)
+    (leaf el-get :ensure t)
+    (leaf blackout :ensure t)
+
+    :config
+    ;; initialize leaf-keywords.el
+    (leaf-keywords-init)))
+
+#+END_SRC
+* Interface customizations
+** Basic configs
+#+BEGIN_SRC emacs-lisp
+  (setq inhibit-startup-message t)
+  (scroll-bar-mode -1)
+  (tool-bar-mode -1)
+  (menu-bar-mode -1)
+  (set-fringe-mode 10)
+  (toggle-frame-fullscreen)
+  (setq visible-bell t)
+  (column-number-mode 1)
+  (global-linum-mode)
+  (dolist (mode '(org-mode-hook
+		  term-mode-hook
+		  eshell-mode-hook
+		  shell-mode-hook))
+    (add-hook mode (lambda () (linum-mode 0))))
+#+END_SRC
+ ** Using all-the-icons
+Nice small icons
+#+BEGIN_SRC emacs-lisp
+  (leaf all-the-icons
+    :ensure t
+    :require t)
+
+#+END_SRC
+** Theme setting
+#+BEGIN_SRC emacs-lisp
+    (leaf doom-themes
+        :ensure t
+        :require t)
+    (load-theme 'doom-monokai-pro t)
+
+#+END_SRC   
+** Using doom-modeline
+Nice package for setting up the mode-line.
+#+BEGIN_SRC emacs-lisp
+  (leaf doom-modeline
+    :ensure t
+    :require t
+    :init (doom-modeline-mode 1))
+#+END_SRC
+* Font customization
+** Setting Font
+#+BEGIN_SRC emacs-lisp
+  (set-face-attribute 'default nil :font "Ubuntu Mono")
+#+END_SRC
+** Using dynamic-fonts
+This package automatically scales text size.
+#+BEGIN_SRC emacs-lisp
+    (leaf dynamic-fonts
+	:ensure t
+	:require t
+	)
+    (dynamic-fonts-setup)
+#+END_SRC
+* Encoding system
+Set the default encoding for opening and saving files.
+#+BEGIN_SRC emacs-lisp
+(set-language-environment "UTF-8")
+#+END_SRC
+
+* Swiper
+#+BEGIN_SRC emacs-lisp
+  (leaf swiper
+    :ensure t
+    :require t)
+#+END_SRC
+
+* Counsel
+#+BEGIN_SRC emacs-lisp
+  (leaf counsel
+    :ensure t
+    :require t
+    :bind (("M-x" . counsel-M-x)
+	   ("C-x b" . counsel-ibuffer)
+	   ("C-x C-f" . counsel-find-file)
+	   (minibuffer-local-map
+	    ("C-r" . counsel-minibuffer-history))))
+
+  (global-set-key (kbd "C-M-j") 'counsel-switch-buffer)
+#+END_SRC
+
+* Ivy
+#+BEGIN_SRC emacs-lisp
+  (leaf ivy
+    :ensure t
+    :require t
+    :diminish
+    :bind (("C-s" . swiper)
+	   (ivy-minibuffer-map
+	    ("TAB" . ivy-alt-done)
+	    ("C-l" . ivy-alt-done)
+	    ("C-j" . ivy-next-line)
+	    ("C-k" . ivy-previous-line))
+	   (ivy-switch-buffer-map
+	    ("C-k" . ivy-previous-line)
+	    ("C-l" . ivy-alt-done)
+	    ("C-d" . ivy-switch-buffer-kill))
+	   (ivy-reverse-i-search-map
+	    ("C-k" . ivy-previous-line)
+	    ("C-d" . ivy-reverse-i-search-kill)))
+    :config
+    (ivy-mode 1))
+
+  (leaf ivy-rich
+    :ensure t
+    :require t
+    :init (ivy-rich-mode 1))
+#+END_SRC
+
+* which-key
+Shows you helpful list of commands on how to continue
+the current keyboard combination
+#+BEGIN_SRC emacs-lisp
+  (leaf which-key
+    :ensure t
+    :require t
+    :init (which-key-mode)
+    :diminish
+    :config (setq which-key-idle-delay 3.0))
+#+END_SRC
+
+* helpful
+Gives nicer help screens.
+#+BEGIN_SRC emacs-lisp
+
+  (leaf helpful
+    :ensure t
+    :require t
+    :custom
+    (counsel-describe-function-function #'helpful-callable)
+    (counsel-describe-variable-function #'helpful-variable)
+    :bind
+    ([remap describe-function] . counsel-describe-function)
+    ([remap describe-command] . helpful-command)
+    ([remap describe-variable] . counsel-describe-variable)
+    ([remap describe-key] . helpful-key))
+#+END_SRC
+* winner-mode
+#+BEGIN_SRC emacs-lisp
+(winner-mode 1)
+#+END_SRC
+* magit
+#+BEGIN_SRC emacs-lisp
+  (leaf magit
+    :ensure t
+    :require t)
+#+END_SRC
+ 
+* projectile
+Easy navigation between projects.
+Switch the file-directory corresponding to where your git projects.
+#+BEGIN_SRC emacs-lisp
+  (leaf projectile
+    :ensure t
+    :require t
+    :diminish
+    :config (projectile-mode)
+    :bind
+    ("C-c p" . projectile-command-map)
+    :init
+    (when (file-directory-p "~/Projects/")
+      (setq projectile-project-search-path '("~/Projects/")))
+    (setq projectile-switch-project-action #'dw/switch-project-action))
+
+  (leaf counsel-projectile
+    :ensure t
+    :require t
+    :after projectile
+    :bind (("C-M-p" . counsel-projectile-find-file))
+    :config
+    (counsel-projectile-mode))
+
+#+END_SRC
+
+* Rainbow delimiters
+Nice package to highlight matching parantheses.
+#+BEGIN_SRC emacs-lisp
+    (leaf rainbow-delimiters
+      :ensure t
+      :require t
+      :hook (prog-mode-hook . rainbow-delimiters-mode)
+      :hook (org-mode-hook . rainbow-delimiters-mode))
+#+END_SRC
+
+* Multiple cursors
+This can be used to select multiple cursors.
+#+BEGIN_SRC emacs-lisp
+  (leaf multiple-cursors
+    :ensure t
+    :require t
+    :bind (("C-q" . mc/edit-lines)
+	  ("C-." . mc/mark-next-like-this)
+	  ("C-," . mc/mark-previous-like-this)
+	  ("C-c C-SPC" . mc/mark-all-like-this)))
+#+END_SRC
+
+* Programming languages
+** Python
+*** Elpy
+Elpy is a great all around tool for python.
+#+BEGIN_SRC emacs-lisp
+(leaf elpy
+  :ensure t
+  :require t
+  :init
+  (elpy-enable))
+#+END_SRC
+*** Black
+Formatting whitespaces, indentation etc.
+#+begin_src emacs-lisp
+  (leaf python-black
+    :ensure t
+    :require t
+    :after python
+    :hook (python-mode . python-black-on-save-mode-enable-dwim))
+#+end_src
+ 
+** Haskell
+#+BEGIN_SRC emacs-lisp
+(leaf haskell-mode
+  :ensure t
+  :require t)
+
+(defun haskell-setup ()
+  (haskell-indentation-mode 1)
+  (interactive-haskell-mode 1))
+(add-hook 'haskell-mode-hook 'haskell-setup)
+#+END_SRC
+
+*** company-ghci
+#+begin_src emacs-lisp
+(leaf company-ghci
+  :ensure t
+  :require t
+  :hook (haskell-mode-hook . company-mode)
+  :hook (haskell-interactive-mode-hook . company-mode))
+#+end_src
+
+
+* Autocompletion
+** Company
+#+BEGIN_SRC emacs-lisp
+  (leaf company
+    :ensure t
+    :require t
+    :init (global-company-mode))
+#+END_SRC
+** YASnippet
+#+BEGIN_SRC emacs-lisp
+  (leaf yasnippet
+    :ensure t
+    :require t
+    :config (setq yas-snippet-dirs
+		  '("~/.emacs.d/snippets"
+		  "/home/roni/.emacs.d/elpa/yasnippet-snippets-20210910.1959/snippets"))
+    :init (yas-global-mode 1))
+
+  (leaf yasnippet-snippets
+    :ensure t
+    :require t)
+
+  (leaf ivy-yasnippet
+    :ensure t
+    :require t)
+  
+  (setq org-src-tab-acts-natively nil)
+#+END_SRC
+* Error checking
+#+BEGIN_SRC emacs-lisp
+  (leaf flycheck
+    :ensure t
+    :require t
+    :init (global-flycheck-mode))
+#+END_SRC
+
+* src snippet
+
