@@ -1,0 +1,577 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<head>
+<!-- 2021-10-16 la 20:22 -->
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>&lrm;</title>
+<meta name="author" content="Roni Kettunen" />
+<meta name="generator" content="Org Mode" />
+<style>
+  #content { max-width: 60em; margin: auto; }
+  .title  { text-align: center;
+             margin-bottom: .2em; }
+  .subtitle { text-align: center;
+              font-size: medium;
+              font-weight: bold;
+              margin-top:0; }
+  .todo   { font-family: monospace; color: red; }
+  .done   { font-family: monospace; color: green; }
+  .priority { font-family: monospace; color: orange; }
+  .tag    { background-color: #eee; font-family: monospace;
+            padding: 2px; font-size: 80%; font-weight: normal; }
+  .timestamp { color: #bebebe; }
+  .timestamp-kwd { color: #5f9ea0; }
+  .org-right  { margin-left: auto; margin-right: 0px;  text-align: right; }
+  .org-left   { margin-left: 0px;  margin-right: auto; text-align: left; }
+  .org-center { margin-left: auto; margin-right: auto; text-align: center; }
+  .underline { text-decoration: underline; }
+  #postamble p, #preamble p { font-size: 90%; margin: .2em; }
+  p.verse { margin-left: 3%; }
+  pre {
+    border: 1px solid #e6e6e6;
+    border-radius: 3px;
+    background-color: #f2f2f2;
+    padding: 8pt;
+    font-family: monospace;
+    overflow: auto;
+    margin: 1.2em;
+  }
+  pre.src {
+    position: relative;
+    overflow: auto;
+  }
+  pre.src:before {
+    display: none;
+    position: absolute;
+    top: -8px;
+    right: 12px;
+    padding: 3px;
+    color: #555;
+    background-color: #f2f2f299;
+  }
+  pre.src:hover:before { display: inline; margin-top: 14px;}
+  /* Languages per Org manual */
+  pre.src-asymptote:before { content: 'Asymptote'; }
+  pre.src-awk:before { content: 'Awk'; }
+  pre.src-authinfo::before { content: 'Authinfo'; }
+  pre.src-C:before { content: 'C'; }
+  /* pre.src-C++ doesn't work in CSS */
+  pre.src-clojure:before { content: 'Clojure'; }
+  pre.src-css:before { content: 'CSS'; }
+  pre.src-D:before { content: 'D'; }
+  pre.src-ditaa:before { content: 'ditaa'; }
+  pre.src-dot:before { content: 'Graphviz'; }
+  pre.src-calc:before { content: 'Emacs Calc'; }
+  pre.src-emacs-lisp:before { content: 'Emacs Lisp'; }
+  pre.src-fortran:before { content: 'Fortran'; }
+  pre.src-gnuplot:before { content: 'gnuplot'; }
+  pre.src-haskell:before { content: 'Haskell'; }
+  pre.src-hledger:before { content: 'hledger'; }
+  pre.src-java:before { content: 'Java'; }
+  pre.src-js:before { content: 'Javascript'; }
+  pre.src-latex:before { content: 'LaTeX'; }
+  pre.src-ledger:before { content: 'Ledger'; }
+  pre.src-lisp:before { content: 'Lisp'; }
+  pre.src-lilypond:before { content: 'Lilypond'; }
+  pre.src-lua:before { content: 'Lua'; }
+  pre.src-matlab:before { content: 'MATLAB'; }
+  pre.src-mscgen:before { content: 'Mscgen'; }
+  pre.src-ocaml:before { content: 'Objective Caml'; }
+  pre.src-octave:before { content: 'Octave'; }
+  pre.src-org:before { content: 'Org mode'; }
+  pre.src-oz:before { content: 'OZ'; }
+  pre.src-plantuml:before { content: 'Plantuml'; }
+  pre.src-processing:before { content: 'Processing.js'; }
+  pre.src-python:before { content: 'Python'; }
+  pre.src-R:before { content: 'R'; }
+  pre.src-ruby:before { content: 'Ruby'; }
+  pre.src-sass:before { content: 'Sass'; }
+  pre.src-scheme:before { content: 'Scheme'; }
+  pre.src-screen:before { content: 'Gnu Screen'; }
+  pre.src-sed:before { content: 'Sed'; }
+  pre.src-sh:before { content: 'shell'; }
+  pre.src-sql:before { content: 'SQL'; }
+  pre.src-sqlite:before { content: 'SQLite'; }
+  /* additional languages in org.el's org-babel-load-languages alist */
+  pre.src-forth:before { content: 'Forth'; }
+  pre.src-io:before { content: 'IO'; }
+  pre.src-J:before { content: 'J'; }
+  pre.src-makefile:before { content: 'Makefile'; }
+  pre.src-maxima:before { content: 'Maxima'; }
+  pre.src-perl:before { content: 'Perl'; }
+  pre.src-picolisp:before { content: 'Pico Lisp'; }
+  pre.src-scala:before { content: 'Scala'; }
+  pre.src-shell:before { content: 'Shell Script'; }
+  pre.src-ebnf2ps:before { content: 'ebfn2ps'; }
+  /* additional language identifiers per "defun org-babel-execute"
+       in ob-*.el */
+  pre.src-cpp:before  { content: 'C++'; }
+  pre.src-abc:before  { content: 'ABC'; }
+  pre.src-coq:before  { content: 'Coq'; }
+  pre.src-groovy:before  { content: 'Groovy'; }
+  /* additional language identifiers from org-babel-shell-names in
+     ob-shell.el: ob-shell is the only babel language using a lambda to put
+     the execution function name together. */
+  pre.src-bash:before  { content: 'bash'; }
+  pre.src-csh:before  { content: 'csh'; }
+  pre.src-ash:before  { content: 'ash'; }
+  pre.src-dash:before  { content: 'dash'; }
+  pre.src-ksh:before  { content: 'ksh'; }
+  pre.src-mksh:before  { content: 'mksh'; }
+  pre.src-posh:before  { content: 'posh'; }
+  /* Additional Emacs modes also supported by the LaTeX listings package */
+  pre.src-ada:before { content: 'Ada'; }
+  pre.src-asm:before { content: 'Assembler'; }
+  pre.src-caml:before { content: 'Caml'; }
+  pre.src-delphi:before { content: 'Delphi'; }
+  pre.src-html:before { content: 'HTML'; }
+  pre.src-idl:before { content: 'IDL'; }
+  pre.src-mercury:before { content: 'Mercury'; }
+  pre.src-metapost:before { content: 'MetaPost'; }
+  pre.src-modula-2:before { content: 'Modula-2'; }
+  pre.src-pascal:before { content: 'Pascal'; }
+  pre.src-ps:before { content: 'PostScript'; }
+  pre.src-prolog:before { content: 'Prolog'; }
+  pre.src-simula:before { content: 'Simula'; }
+  pre.src-tcl:before { content: 'tcl'; }
+  pre.src-tex:before { content: 'TeX'; }
+  pre.src-plain-tex:before { content: 'Plain TeX'; }
+  pre.src-verilog:before { content: 'Verilog'; }
+  pre.src-vhdl:before { content: 'VHDL'; }
+  pre.src-xml:before { content: 'XML'; }
+  pre.src-nxml:before { content: 'XML'; }
+  /* add a generic configuration mode; LaTeX export needs an additional
+     (add-to-list 'org-latex-listings-langs '(conf " ")) in .emacs */
+  pre.src-conf:before { content: 'Configuration File'; }
+
+  table { border-collapse:collapse; }
+  caption.t-above { caption-side: top; }
+  caption.t-bottom { caption-side: bottom; }
+  td, th { vertical-align:top;  }
+  th.org-right  { text-align: center;  }
+  th.org-left   { text-align: center;   }
+  th.org-center { text-align: center; }
+  td.org-right  { text-align: right;  }
+  td.org-left   { text-align: left;   }
+  td.org-center { text-align: center; }
+  dt { font-weight: bold; }
+  .footpara { display: inline; }
+  .footdef  { margin-bottom: 1em; }
+  .figure { padding: 1em; }
+  .figure p { text-align: center; }
+  .equation-container {
+    display: table;
+    text-align: center;
+    width: 100%;
+  }
+  .equation {
+    vertical-align: middle;
+  }
+  .equation-label {
+    display: table-cell;
+    text-align: right;
+    vertical-align: middle;
+  }
+  .inlinetask {
+    padding: 10px;
+    border: 2px solid gray;
+    margin: 10px;
+    background: #ffffcc;
+  }
+  #org-div-home-and-up
+   { text-align: right; font-size: 70%; white-space: nowrap; }
+  textarea { overflow-x: auto; }
+  .linenr { font-size: smaller }
+  .code-highlighted { background-color: #ffff00; }
+  .org-info-js_info-navigation { border-style: none; }
+  #org-info-js_console-label
+    { font-size: 10px; font-weight: bold; white-space: nowrap; }
+  .org-info-js_search-highlight
+    { background-color: #ffff00; color: #000000; font-weight: bold; }
+  .org-svg { width: 90%; }
+</style>
+<style type="text/css">
+/* Base */html,body {    background-color: #222;    min-height: 100%;    line-height: 1.5;}body {    color: #fafafa;    font-family: "Courier New";}::selection {    background-color:  #2ecc40;    color: white;}/* Responsive content positioning */@media only screen and (min-width: 1020px) /* Large screens */{    body{        padding: 10vh 25vw;    }}@media only screen and (max-width: 1020px) and (min-width: 750px) /* Small screens */{    body{        padding: 5vh 10vw;    }}@media only screen and (max-width: 750px) /* Small screens */{    body{        padding: 2vh 5vw;    }}/* Headers */h1{font-size: 2.5rem;}h2{font-size: 1.7rem;}h1 > .subtitle, h3, h4, h5, h6{font-size: 1.3rem;}.title{    margin-bottom: 2.5rem;}/* Padding & Margin */* {margin: 0; padding: 0;}pre, blockquote, ul, ol, p, table{    margin: 1rem 0;}h1, h2{margin-top: 2rem; line-height: 2rem;}h3, h4, h5, h6{margin-top: 1rem;}/* Links  */a, a:visited {    color: #01ff70;    text-decoration: underline;}a:hover, a:focus, a:active {    color: #2ecc40;}/* Code */pre {    font-family: "Courier New";    padding: .5rem;    background-color: #333;    padding: 0.5rem;    border-radius: 0.2rem;    font-size: 0.9rem;    color: #EEE;    overflow-x: auto;}.org-keyword{    color: #01ff70;}.org-rainbow-delimiters-depth-1{    color: #2ecc40;}.org-rainbow-delimiters-depth-2{    color: #01ff70;}/* Blockquotes */blockquote {    border-left: 3px solid #01ff70;    padding-left: 1rem;}li{    list-style-position: inside;}/* Tags */.tag{    margin-top: 0.5rem;    display: block;    color: white;    font-size: var(--font-size-xsmall);}.tag > span{		font-weight: 400;    font-size: 0.8rem;    background-color: #444;    text-transform: uppercase;    border-radius: 2px;    width: fit-content;    height: auto;    padding: 1px 5px;}/* Keywords */.todo{    color: #2ecc40;}.done{    color: #444;}/* Overflows */.outline-text-2, .outline-text-3, .outline-text-4{	  max-width: 100%;	  overflow-x: auto;}/* Table */tr:nth-child(even) {    background-color: #333;}th, td{    padding: 0.5rem;    text-align: center;}.underline{    text-decoration: underline;}img{    max-width: 100%;    height: auto;}
+</style>
+</head>
+<body>
+<div id="content" class="content">
+<div id="table-of-contents" role="doc-toc">
+<h2>Table of Contents</h2>
+<div id="text-table-of-contents" role="doc-toc">
+<ul>
+<li><a href="#org23be271">1. Install leaf</a></li>
+<li><a href="#org3d8a72b">2. Interface customizations</a>
+<ul>
+<li><a href="#orge14e28f">2.1. Basic configs</a></li>
+<li><a href="#org8949466">2.2. Theme setting</a></li>
+<li><a href="#orgda4041c">2.3. Using doom-modeline</a></li>
+</ul>
+</li>
+<li><a href="#org506ba65">3. Font customization</a>
+<ul>
+<li><a href="#orgc659d65">3.1. Setting Font</a></li>
+<li><a href="#org9a66474">3.2. Using dynamic-fonts</a></li>
+</ul>
+</li>
+<li><a href="#org2b86371">4. Swiper</a></li>
+<li><a href="#org6640bb1">5. Counsel</a></li>
+<li><a href="#orgd49f363">6. Ivy</a></li>
+<li><a href="#org086cce4">7. which-key</a></li>
+<li><a href="#org7882db3">8. helpful</a></li>
+<li><a href="#org25ad38b">9. winner-mode</a></li>
+<li><a href="#orgc8f7441">10. magit</a></li>
+<li><a href="#org6a35ea2">11. projectile</a></li>
+<li><a href="#org661782b">12. Rainbow delimiters</a></li>
+<li><a href="#org89a583b">13. Multiple cursors</a></li>
+<li><a href="#org0635adc">14. src snippet</a></li>
+</ul>
+</div>
+</div>
+<div id="outline-container-org23be271" class="outline-2">
+<h2 id="org23be271"><span class="section-number-2">1.</span> Install leaf</h2>
+<div class="outline-text-2" id="text-1">
+<p>
+Substitute for package.el, works similarly to it
+</p>
+<div class="org-src-container">
+<pre class="src src-emacs-lisp">(eval-and-compile
+  (customize-set-variable
+   'package-archives '(("org" . "https://orgmode.org/elpa/")
+		       ("melpa" . "https://melpa.org/packages/")
+		       ("gnu" . "https://elpa.gnu.org/packages/")))
+  (package-initialize)
+  (unless (package-installed-p 'leaf)
+    (package-refresh-contents)
+    (package-install 'leaf))
+
+  (leaf leaf-keywords
+    :ensure t
+    :init
+    ;; optional packages if you want to use :hydra, :el-get, :blackout,,,
+    (leaf hydra :ensure t)
+    (leaf el-get :ensure t)
+    (leaf blackout :ensure t)
+
+    :config
+    ;; initialize leaf-keywords.el
+    (leaf-keywords-init)))
+
+</pre>
+</div>
+</div>
+</div>
+<div id="outline-container-org3d8a72b" class="outline-2">
+<h2 id="org3d8a72b"><span class="section-number-2">2.</span> Interface customizations</h2>
+<div class="outline-text-2" id="text-2">
+</div>
+<div id="outline-container-orge14e28f" class="outline-3">
+<h3 id="orge14e28f"><span class="section-number-3">2.1.</span> Basic configs</h3>
+<div class="outline-text-3" id="text-2-1">
+<div class="org-src-container">
+<pre class="src src-emacs-lisp">(setq inhibit-startup-message t)
+(scroll-bar-mode -1)
+(tool-bar-mode -1)
+(menu-bar-mode -1)
+(set-fringe-mode 10)
+(toggle-frame-fullscreen)
+(setq visible-bell t)
+(column-number-mode 1)
+(global-linum-mode)
+(dolist (mode '(org-mode-hook
+		term-mode-hook
+		eshell-mode-hook
+		shell-mode-hook))
+  (add-hook mode (lambda () (linum-mode 0))))
+</pre>
+</div>
+<p>
+ ** Using all-the-icons
+Nice small icons
+</p>
+<div class="org-src-container">
+<pre class="src src-emacs-lisp">(leaf all-the-icons
+  :ensure t
+  :require t)
+
+</pre>
+</div>
+</div>
+</div>
+<div id="outline-container-org8949466" class="outline-3">
+<h3 id="org8949466"><span class="section-number-3">2.2.</span> Theme setting</h3>
+<div class="outline-text-3" id="text-2-2">
+<div class="org-src-container">
+<pre class="src src-emacs-lisp">(leaf doom-themes
+    :ensure t
+    :require t)
+(load-theme 'doom-gruvbox t)
+</pre>
+</div>
+</div>
+</div>
+<div id="outline-container-orgda4041c" class="outline-3">
+<h3 id="orgda4041c"><span class="section-number-3">2.3.</span> Using doom-modeline</h3>
+<div class="outline-text-3" id="text-2-3">
+<p>
+Nice package for setting up the mode-line
+</p>
+<div class="org-src-container">
+<pre class="src src-emacs-lisp">(leaf doom-modeline
+  :ensure t
+  :require t
+  :init (doom-modeline-mode 1))
+</pre>
+</div>
+</div>
+</div>
+</div>
+<div id="outline-container-org506ba65" class="outline-2">
+<h2 id="org506ba65"><span class="section-number-2">3.</span> Font customization</h2>
+<div class="outline-text-2" id="text-3">
+</div>
+<div id="outline-container-orgc659d65" class="outline-3">
+<h3 id="orgc659d65"><span class="section-number-3">3.1.</span> Setting Font</h3>
+<div class="outline-text-3" id="text-3-1">
+<div class="org-src-container">
+<pre class="src src-emacs-lisp">(set-face-attribute 'default nil :font "Ubuntu Mono")
+</pre>
+</div>
+</div>
+</div>
+<div id="outline-container-org9a66474" class="outline-3">
+<h3 id="org9a66474"><span class="section-number-3">3.2.</span> Using dynamic-fonts</h3>
+<div class="outline-text-3" id="text-3-2">
+<p>
+This package automatically scales text size.
+</p>
+<div class="org-src-container">
+<pre class="src src-emacs-lisp">(leaf dynamic-fonts
+    :ensure t
+    :require t
+    )
+(dynamic-fonts-setup)
+</pre>
+</div>
+</div>
+</div>
+</div>
+<div id="outline-container-org2b86371" class="outline-2">
+<h2 id="org2b86371"><span class="section-number-2">4.</span> Swiper</h2>
+<div class="outline-text-2" id="text-4">
+<div class="org-src-container">
+<pre class="src src-emacs-lisp">(leaf swiper
+  :ensure t
+  :require t)
+</pre>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org6640bb1" class="outline-2">
+<h2 id="org6640bb1"><span class="section-number-2">5.</span> Counsel</h2>
+<div class="outline-text-2" id="text-5">
+<div class="org-src-container">
+<pre class="src src-emacs-lisp">(leaf counsel
+  :ensure t
+  :require t
+  :bind (("M-x" . counsel-M-x)
+	 ("C-x b" . counsel-ibuffer)
+	 ("C-x C-f" . counsel-find-file)
+	 (minibuffer-local-map
+	  ("C-r" . counsel-minibuffer-history))))
+
+(global-set-key (kbd "C-M-j") 'counsel-switch-buffer)
+</pre>
+</div>
+</div>
+</div>
+
+<div id="outline-container-orgd49f363" class="outline-2">
+<h2 id="orgd49f363"><span class="section-number-2">6.</span> Ivy</h2>
+<div class="outline-text-2" id="text-6">
+<div class="org-src-container">
+<pre class="src src-emacs-lisp">(leaf ivy
+  :ensure t
+  :require t
+  :diminish
+  :bind (("C-s" . swiper)
+	 (ivy-minibuffer-map
+	  ("TAB" . ivy-alt-done)
+	  ("C-l" . ivy-alt-done)
+	  ("C-j" . ivy-next-line)
+	  ("C-k" . ivy-previous-line))
+	 (ivy-switch-buffer-map
+	  ("C-k" . ivy-previous-line)
+	  ("C-l" . ivy-alt-done)
+	  ("C-d" . ivy-switch-buffer-kill))
+	 (ivy-reverse-i-search-map
+	  ("C-k" . ivy-previous-line)
+	  ("C-d" . ivy-reverse-i-search-kill)))
+  :config
+  (ivy-mode 1))
+
+(leaf ivy-rich
+  :ensure t
+  :require t
+  :init (ivy-rich-mode 1))
+</pre>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org086cce4" class="outline-2">
+<h2 id="org086cce4"><span class="section-number-2">7.</span> which-key</h2>
+<div class="outline-text-2" id="text-7">
+<p>
+Shows you helpful list of commands on how to continue
+the current keyboard combination
+</p>
+<div class="org-src-container">
+<pre class="src src-emacs-lisp">(leaf which-key
+  :ensure t
+  :require t
+  :init (which-key-mode)
+  :diminish
+  :config (setq which-key-idle-delay 3.0))
+</pre>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org7882db3" class="outline-2">
+<h2 id="org7882db3"><span class="section-number-2">8.</span> helpful</h2>
+<div class="outline-text-2" id="text-8">
+<p>
+Gives nicer help screens.
+</p>
+<div class="org-src-container">
+<pre class="src src-emacs-lisp">
+(leaf helpful
+  :ensure t
+  :require t
+  :custom
+  (counsel-describe-function-function #'helpful-callable)
+  (counsel-describe-variable-function #'helpful-variable)
+  :bind
+  ([remap describe-function] . counsel-describe-function)
+  ([remap describe-command] . helpful-command)
+  ([remap describe-variable] . counsel-describe-variable)
+  ([remap describe-key] . helpful-key))
+</pre>
+</div>
+</div>
+</div>
+<div id="outline-container-org25ad38b" class="outline-2">
+<h2 id="org25ad38b"><span class="section-number-2">9.</span> winner-mode</h2>
+<div class="outline-text-2" id="text-9">
+<div class="org-src-container">
+<pre class="src src-emacs-lisp">(winner-mode 1)
+</pre>
+</div>
+</div>
+</div>
+<div id="outline-container-orgc8f7441" class="outline-2">
+<h2 id="orgc8f7441"><span class="section-number-2">10.</span> magit</h2>
+<div class="outline-text-2" id="text-10">
+<div class="org-src-container">
+<pre class="src src-emacs-lisp">(leaf magit
+  :ensure t
+  :require t)
+</pre>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org6a35ea2" class="outline-2">
+<h2 id="org6a35ea2"><span class="section-number-2">11.</span> projectile</h2>
+<div class="outline-text-2" id="text-11">
+<p>
+Easy navigation between projects.
+Switch the file-directory corresponding to where your git projects.
+</p>
+<div class="org-src-container">
+<pre class="src src-emacs-lisp">(leaf projectile
+  :ensure t
+  :require t
+  :diminish
+  :config (projectile-mode)
+  :bind
+  ("C-c p" . projectile-command-map)
+  :init
+  (when (file-directory-p "~/Projects/")
+    (setq projectile-project-search-path '("~/Projects/")))
+  (setq projectile-switch-project-action #'dw/switch-project-action))
+
+(leaf counsel-projectile
+  :ensure t
+  :require t
+  :after projectile
+  :bind (("C-M-p" . counsel-projectile-find-file))
+  :config
+  (counsel-projectile-mode))
+
+</pre>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org661782b" class="outline-2">
+<h2 id="org661782b"><span class="section-number-2">12.</span> Rainbow delimiters</h2>
+<div class="outline-text-2" id="text-12">
+<p>
+Nice package to highlight matching parantheses.
+</p>
+<div class="org-src-container">
+<pre class="src src-emacs-lisp">(leaf rainbow-delimiters
+  :ensure t
+  :require t
+  :hook (prog-mode . rainbow-delimiters-mode)
+  :hook (org-mode . rainbow-delimiters-mode))
+</pre>
+</div>
+
+<p>
+*
+</p>
+</div>
+</div>
+
+<div id="outline-container-org89a583b" class="outline-2">
+<h2 id="org89a583b"><span class="section-number-2">13.</span> Multiple cursors</h2>
+<div class="outline-text-2" id="text-13">
+<p>
+This can be used to select multiple cursors.
+</p>
+<div class="org-src-container">
+<pre class="src src-emacs-lisp">(require 'multiple-cursors)
+(global-set-key (kbd "C-q") 'mc/edit-lines)
+(global-set-key (kbd "C-&lt;") 'mc/mark-next-like-this)
+(global-set-key (kbd "C-&gt;") 'mc/mark-previous-like-this)
+(global-set-key (kbd "C-c C-q") 'mc/mark-all-like-this)
+(global-set-key (kbd "C-c C-SPC") 'set-rectangular-region-anchor)
+</pre>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org0635adc" class="outline-2">
+<h2 id="org0635adc"><span class="section-number-2">14.</span> src snippet</h2>
+<div class="outline-text-2" id="text-14">
+<div class="org-src-container">
+<pre class="src src-emacs-lisp">
+</pre>
+</div>
+</div>
+</div>
+</div>
+<div id="postamble" class="status">
+<p class="author">Author: Roni Kettunen</p>
+<p class="date">Created: 2021-10-16 la 20:22</p>
+<p class="validation"><a href="https://validator.w3.org/check?uri=referer">Validate</a></p>
+</div>
+</body>
+</html>

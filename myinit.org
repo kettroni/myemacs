@@ -1,3 +1,4 @@
+#+SETUPFILE: "~/Projects/myemacs/themes/retro.theme"
 * Install leaf
 
 Substitute for package.el, works similarly to it
