@@ -43,7 +43,7 @@ Substitute for package.el, works similarly to it
 		  shell-mode-hook))
     (add-hook mode (lambda () (linum-mode 0))))
 #+END_SRC
-** Using all-the-icons
+ ** Using all-the-icons
 Nice small icons
 #+BEGIN_SRC emacs-lisp
   (leaf all-the-icons
@@ -205,6 +205,17 @@ Nice package to highlight matching parantheses.
 #+END_SRC
 
 *
+
+* Multiple cursors
+This can be used to select multiple cursors.
+#+BEGIN_SRC emacs-lisp
+  (require 'multiple-cursors)
+  (global-set-key (kbd "C-q") 'mc/edit-lines)
+  (global-set-key (kbd "C-<") 'mc/mark-next-like-this)
+  (global-set-key (kbd "C->") 'mc/mark-previous-like-this)
+  (global-set-key (kbd "C-c C-q") 'mc/mark-all-like-this)
+  (global-set-key (kbd "C-c C-SPC") 'set-rectangular-region-anchor)
+#+END_SRC
 
 * src snippet
 #+BEGIN_SRC emacs-lisp
