@@ -57,7 +57,8 @@ Nice small icons
     (leaf doom-themes
         :ensure t
         :require t)
-    (load-theme 'doom-gruvbox t)
+    (load-theme 'doom-monokai-pro t)
+
 #+END_SRC   
 ** Using doom-modeline
 Nice package for setting up the mode-line.
@@ -207,8 +208,8 @@ Nice package to highlight matching parantheses.
     (leaf rainbow-delimiters
       :ensure t
       :require t
-      :hook (prog-mode . rainbow-delimiters-mode)
-      :hook (org-mode . rainbow-delimiters-mode))
+      :hook (prog-mode-hook . rainbow-delimiters-mode)
+      :hook (org-mode-hook . rainbow-delimiters-mode))
 #+END_SRC
 
 * Multiple cursors
@@ -224,21 +225,83 @@ This can be used to select multiple cursors.
 #+END_SRC
 
 * Programming languages
-** Autocompletion
+** Python
+*** Elpy
+Elpy is a great all around tool for python.
+#+BEGIN_SRC emacs-lisp
+(leaf elpy
+  :ensure t
+  :require t
+  :init
+  (elpy-enable))
+#+END_SRC
+*** Black
+Formatting whitespaces, indentation etc.
+#+begin_src emacs-lisp
+  (leaf python-black
+    :ensure t
+    :require t
+    :after python
+    :hook (python-mode . python-black-on-save-mode-enable-dwim))
+#+end_src
+ 
+** Haskell
+#+BEGIN_SRC emacs-lisp
+(leaf haskell-mode
+  :ensure t
+  :require t)
+
+(defun haskell-setup ()
+  (haskell-indentation-mode 1)
+  (interactive-haskell-mode 1))
+(add-hook 'haskell-mode-hook 'haskell-setup)
+#+END_SRC
+
+*** company-ghci
+#+begin_src emacs-lisp
+(leaf company-ghci
+  :ensure t
+  :require t
+  :hook (haskell-mode-hook . company-mode)
+  :hook (haskell-interactive-mode-hook . company-mode))
+#+end_src
+
+
+* Autocompletion
+** Company
 #+BEGIN_SRC emacs-lisp
   (leaf company
     :ensure t
-    :require t)
-  (add-hook 'after-init-hook 'global-company-mode)
+    :require t
+    :init (global-company-mode))
 #+END_SRC
-** Python
-*** Jedi
+** YASnippet
 #+BEGIN_SRC emacs-lisp
+  (leaf yasnippet
+    :ensure t
+    :require t
+    :config (setq yas-snippet-dirs
+		  '("~/.emacs.d/snippets"
+		  "/home/roni/.emacs.d/elpa/yasnippet-snippets-20210910.1959/snippets"))
+    :init (yas-global-mode 1))
 
+  (leaf yasnippet-snippets
+    :ensure t
+    :require t)
+
+  (leaf ivy-yasnippet
+    :ensure t
+    :require t)
+  
+  (setq org-src-tab-acts-natively nil)
 #+END_SRC
-
+* Error checking
+#+BEGIN_SRC emacs-lisp
+  (leaf flycheck
+    :ensure t
+    :require t
+    :init (global-flycheck-mode))
+#+END_SRC
 
 * src snippet
-#+BEGIN_SRC emacs-lisp
 
-#+END_SRC
