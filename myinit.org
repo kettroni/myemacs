@@ -82,10 +82,22 @@ This package automatically scales text size.
 	)
     (dynamic-fonts-setup)
 #+END_SRC
+* Error checking
+#+BEGIN_SRC emacs-lisp
+  (leaf flycheck
+    :ensure t
+    :require t
+    :init (global-flycheck-mode))
+
+  (leaf flymake
+    :ensure t
+    :require t)
+#+END_SRC
 * Encoding system
 Set the default encoding for opening and saving files.
 #+BEGIN_SRC emacs-lisp
 (set-language-environment "UTF-8")
+(add-to-list 'process-coding-system-alist '("python" . (utf-8 . utf-8)))
 #+END_SRC
 
 * Swiper
@@ -235,6 +247,15 @@ Elpy is a great all around tool for python.
   :init
   (elpy-enable))
 #+END_SRC
+
+Adding this to fix weird bugs with elpy
+#+begin_src emacs-lisp
+(setenv "PYTHONIOENCODING" "utf-8")
+(add-to-list 'process-coding-system-alist '("python" . (utf-8 . utf-8)))
+(add-to-list 'process-coding-system-alist '("elpy" . (utf-8 . utf-8)))
+(add-to-list 'process-coding-system-alist '("flake8" . (utf-8 . utf-8)))
+#+end_src
+
 *** Black
 Formatting whitespaces, indentation etc.
 #+begin_src emacs-lisp
@@ -244,7 +265,11 @@ Formatting whitespaces, indentation etc.
     :after python
     :hook (python-mode . python-black-on-save-mode-enable-dwim))
 #+end_src
- 
+*** Org
+#+begin_src emacs-lisp
+
+#+end_src
+
 ** Haskell
 #+BEGIN_SRC emacs-lisp
 (leaf haskell-mode
@@ -285,6 +310,45 @@ Formatting whitespaces, indentation etc.
 (add-hook 'c-mode-common-hook 'my-c-mode-common-hook)
 #+end_src
 
+** Scala
+Basic scala-mode and sbt config.
+#+begin_src emacs-lisp
+(leaf scala-mode
+  :ensure t
+  :require t
+  :mode "\\.s\\(cala\\|bt\\)$")
+
+(leaf sbt-mode
+  :ensure t
+  :require t
+  :commands sbt-start sbt-command
+  :config
+  ;; WORKAROUND: https://github.com/ensime/emacs-sbt-mode/issues/31
+  ;; allows using SPACE when in the minibuffer
+  (substitute-key-definition
+   'minibuffer-complete-word
+   'self-insert-command
+   minibuffer-local-completion-map))
+#+end_src
+
+*** "autocomplete"
+#+begin_src emacs-lisp
+(leaf lsp-mode
+  :ensure t
+  :require t
+  ;; Optional - enable elisp-mode automatically in scala files
+  :hook (scala-mode . elisp)
+  :config (setq elisp-prefer-flymake nil))
+
+;; Add company-elisp backend for metals
+(leaf lsp-metals
+  :ensure t
+  :require t)
+
+(leaf lsp-ui
+  :ensure t
+  :require t) ;; this is necessary to get info about compilation
+#+end_src
 
 * Autocompletion
 ** Company
@@ -314,13 +378,12 @@ Formatting whitespaces, indentation etc.
   
   (setq org-src-tab-acts-natively nil)
 #+END_SRC
-* Error checking
-#+BEGIN_SRC emacs-lisp
-  (leaf flycheck
-    :ensure t
-    :require t
-    :init (global-flycheck-mode))
-#+END_SRC
 
-* src snippet
+* Org-mode
+#+begin_src emacs-lisp
+(org-babel-do-load-languages
+ 'org-babel-load-languages
+ '((python . t)))
+#+end_src
+
 
