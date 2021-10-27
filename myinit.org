@@ -232,6 +232,7 @@ Elpy is a great all around tool for python.
 (leaf elpy
   :ensure t
   :require t
+  :bind (("C-o" . elpy-goto-definition))
   :init
   (elpy-enable))
 #+END_SRC
