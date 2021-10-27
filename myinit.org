@@ -285,6 +285,12 @@ Formatting whitespaces, indentation etc.
 (add-hook 'c-mode-common-hook 'my-c-mode-common-hook)
 #+end_src
 
+** restclient
+#+begin_src emacs-lisp
+(leaf restclient
+  :ensure t
+  :require t)
+#+end_src
 
 * Autocompletion
 ** Company
